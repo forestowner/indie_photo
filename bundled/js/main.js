@@ -1,2 +1,272 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["js/DxBdnk.js","js/DdXs7x.js","js/cNqYCK.js"])))=>i.map(i=>d[i]);
-import{B as e,C as t,D as n,E as r,M as i,P as a,S as o,_ as s,a as c,j as l,k as u,l as d,n as f,o as p,p as m,r as h,t as g,u as _,w as v}from"./DdXs7x.js";var y=[{threshold:20,trailLength:20},{threshold:40,trailLength:10},{threshold:80,trailLength:5},{threshold:140,trailLength:5},{threshold:200,trailLength:5}],b=n();function x(){let e=c();return e<0||e>=y.length?2:e}function S(e){let[t,n]=i(x()),a=u(()=>{let e=y[t()];return{thresholdIndex:t(),threshold:e.threshold,trailLength:e.trailLength}}),o=e=>{let r=t()+e;r<0||r>=y.length||(sessionStorage.setItem(`thresholdsIndex`,r.toString()),n(r))};return r(b.Provider,{value:[a,{incThreshold:()=>{o(1)},decThreshold:()=>{o(-1)}}],get children(){return e.children}})}function C(){let t=e(b);return _(t,`undefined config context`),t}var w=n();function T(e){let t=f(),[n,a]=i(-1),[o,s]=i([]),[c,l]=i(``),[u,d]=i(!1),[m,g]=i(!1),[_,v]=i(!1),[y,b]=i(`none`),x=e=>{let n=t().length;n<=0||a(t=>e===1?p(t,n):h(t,n))};return r(w.Provider,{value:[{index:n,cordHist:o,hoverText:c,isOpen:u,isAnimating:m,isLoading:_,navVector:y},{setIndex:a,incIndex:()=>{x(1)},decIndex:()=>{x(-1)},setCordHist:s,setHoverText:l,setIsOpen:d,setIsAnimating:g,setIsLoading:v,setNavVector:b}],get children(){return e.children}})}function E(){let t=e(w);return _(t,`undefined desktop context`),t}var D=n();function O(e){let t=f(),[n,a]=i(-1),[o,s]=i(!1),[c,l]=i(!1),[u,d]=i(!1),m=e=>{let n=t().length;n<=0||a(t=>e===1?p(t,n):h(t,n))};return r(D.Provider,{value:[{index:n,isOpen:o,isAnimating:c,isScrollLocked:u},{setIndex:a,incIndex:()=>{m(1)},decIndex:()=>{m(-1)},setIsOpen:s,setIsAnimating:l,setIsScrollLocked:d}],get children(){return e.children}})}function k(){let t=e(D);return _(t,`undefined mobile context`),t}async function A(){if(document.title.split(` | `)[0]===`404`)return[];let e=document.querySelector(`meta[property="og:url"]`),t=e?.content?new URL(`index.json`,e.content).href:new URL(`index.json`,window.location.href).href;try{return(await(await fetch(t,{headers:{Accept:`application/json`}})).json()).sort((e,t)=>e.index<t.index?-1:1)}catch(e){return console.error(e),[]}}var j=s(`<div>Error`),M=document.getElementsByClassName(`container`)[0],N=a(async()=>await d(()=>import(`./DxBdnk.js`),__vite__mapDeps([0,1]))),P=a(async()=>await d(()=>import(`./cNqYCK.js`),__vite__mapDeps([2,1])));function F(e){return r(v,{get fallback(){return j()},get children(){return[r(o,{get when(){return e.isMobile},get children(){return r(O,{get children(){return r(P,{get closeText(){return e.closeText},get loadingText(){return e.loadingText}})}})}}),r(o,{get when(){return!e.isMobile},get children(){return r(T,{get children(){return r(N,{get prevText(){return e.prevText},get closeText(){return e.closeText},get nextText(){return e.nextText},get loadingText(){return e.loadingText}})}})}})]}})}function I(){let[e]=l(A),n=window.navigator.userAgent.toLowerCase(),i=`ontouchstart`in window||window.navigator.maxTouchPoints>0,a=window.matchMedia(`(pointer: coarse)`).matches||window.matchMedia(`(hover: none)`).matches,o=/android|iphone|ipad|ipod|mobile/.test(n),s=/windows nt/.test(n),c=o||i&&a&&!s;return r(t,{get when(){return e.state===`ready`},get children(){return r(g,{get images(){return e()??[]},get children(){return r(S,{get children(){return r(F,{isMobile:c,get prevText(){return M.dataset.prev},get closeText(){return M.dataset.close},get nextText(){return M.dataset.next},get loadingText(){return M.dataset.loading}})}})}})}})}m(()=>r(I,{}),M);export{E as n,C as r,k as t};
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["js/Bm3my0.js","js/DBGy2b.js","js/D82Ev5.js"])))=>i.map(i=>d[i]);
+import { B as useContext, C as Show, D as createContext, E as createComponent, M as createSignal, P as lazy, S as Match, _ as template, a as getThresholdSessionIndex, j as createResource, k as createMemo, l as __vitePreload, n as useImageState, o as increment, p as render, r as decrement, t as ImageStateProvider, u as invariant, w as Switch } from "./DBGy2b.js";
+//#region assets/ts/configState.tsx
+var thresholds = [
+	{
+		threshold: 20,
+		trailLength: 20
+	},
+	{
+		threshold: 40,
+		trailLength: 10
+	},
+	{
+		threshold: 80,
+		trailLength: 5
+	},
+	{
+		threshold: 140,
+		trailLength: 5
+	},
+	{
+		threshold: 200,
+		trailLength: 5
+	}
+];
+var ConfigStateContext = createContext();
+function getSafeThresholdIndex() {
+	const index = getThresholdSessionIndex();
+	if (index < 0 || index >= thresholds.length) return 2;
+	return index;
+}
+function ConfigStateProvider(props) {
+	const [thresholdIndex, setThresholdIndex] = createSignal(getSafeThresholdIndex());
+	const state = createMemo(() => {
+		const current = thresholds[thresholdIndex()];
+		return {
+			thresholdIndex: thresholdIndex(),
+			threshold: current.threshold,
+			trailLength: current.trailLength
+		};
+	});
+	const updateThreshold = (stride) => {
+		const nextIndex = thresholdIndex() + stride;
+		if (nextIndex < 0 || nextIndex >= thresholds.length) return;
+		sessionStorage.setItem("thresholdsIndex", nextIndex.toString());
+		setThresholdIndex(nextIndex);
+	};
+	return createComponent(ConfigStateContext.Provider, {
+		value: [state, {
+			incThreshold: () => {
+				updateThreshold(1);
+			},
+			decThreshold: () => {
+				updateThreshold(-1);
+			}
+		}],
+		get children() {
+			return props.children;
+		}
+	});
+}
+function useConfigState() {
+	const context = useContext(ConfigStateContext);
+	invariant(context, "undefined config context");
+	return context;
+}
+//#endregion
+//#region assets/ts/desktop/state.ts
+var DesktopStateContext = createContext();
+function DesktopStateProvider(props) {
+	const imageState = useImageState();
+	const [index, setIndex] = createSignal(-1);
+	const [cordHist, setCordHist] = createSignal([]);
+	const [hoverText, setHoverText] = createSignal("");
+	const [isOpen, setIsOpen] = createSignal(false);
+	const [isAnimating, setIsAnimating] = createSignal(false);
+	const [isLoading, setIsLoading] = createSignal(false);
+	const [navVector, setNavVector] = createSignal("none");
+	const updateIndex = (stride) => {
+		const length = imageState().length;
+		if (length <= 0) return;
+		setIndex((current) => stride === 1 ? increment(current, length) : decrement(current, length));
+	};
+	return createComponent(DesktopStateContext.Provider, {
+		value: [{
+			index,
+			cordHist,
+			hoverText,
+			isOpen,
+			isAnimating,
+			isLoading,
+			navVector
+		}, {
+			setIndex,
+			incIndex: () => {
+				updateIndex(1);
+			},
+			decIndex: () => {
+				updateIndex(-1);
+			},
+			setCordHist,
+			setHoverText,
+			setIsOpen,
+			setIsAnimating,
+			setIsLoading,
+			setNavVector
+		}],
+		get children() {
+			return props.children;
+		}
+	});
+}
+function useDesktopState() {
+	const context = useContext(DesktopStateContext);
+	invariant(context, "undefined desktop context");
+	return context;
+}
+//#endregion
+//#region assets/ts/mobile/state.ts
+var MobileStateContext = createContext();
+function MobileStateProvider(props) {
+	const imageState = useImageState();
+	const [index, setIndex] = createSignal(-1);
+	const [isOpen, setIsOpen] = createSignal(false);
+	const [isAnimating, setIsAnimating] = createSignal(false);
+	const [isScrollLocked, setIsScrollLocked] = createSignal(false);
+	const updateIndex = (stride) => {
+		const length = imageState().length;
+		if (length <= 0) return;
+		setIndex((current) => stride === 1 ? increment(current, length) : decrement(current, length));
+	};
+	return createComponent(MobileStateContext.Provider, {
+		value: [{
+			index,
+			isOpen,
+			isAnimating,
+			isScrollLocked
+		}, {
+			setIndex,
+			incIndex: () => {
+				updateIndex(1);
+			},
+			decIndex: () => {
+				updateIndex(-1);
+			},
+			setIsOpen,
+			setIsAnimating,
+			setIsScrollLocked
+		}],
+		get children() {
+			return props.children;
+		}
+	});
+}
+function useMobileState() {
+	const context = useContext(MobileStateContext);
+	invariant(context, "undefined mobile context");
+	return context;
+}
+//#endregion
+//#region assets/ts/resources.ts
+async function getImageJSON() {
+	if (document.title.split(" | ")[0] === "404") return [];
+	const ogUrlMetaTag = document.querySelector("meta[property=\"og:url\"]");
+	const indexJsonUrl = ogUrlMetaTag?.content ? new URL("index.json", ogUrlMetaTag.content).href : new URL("index.json", window.location.href).href;
+	try {
+		return (await (await fetch(indexJsonUrl, { headers: { Accept: "application/json" } })).json()).sort((a, b) => {
+			if (a.index < b.index) return -1;
+			return 1;
+		});
+	} catch (e) {
+		console.error(e);
+		return [];
+	}
+}
+//#endregion
+//#region assets/ts/main.tsx
+var _tmpl$ = /* @__PURE__ */ template(`<div>Error`);
+var container = document.getElementsByClassName("container")[0];
+var Desktop = lazy(async () => await __vitePreload(() => import("./Bm3my0.js"), __vite__mapDeps([0,1])));
+var Mobile = lazy(async () => await __vitePreload(() => import("./D82Ev5.js"), __vite__mapDeps([2,1])));
+function AppContent(props) {
+	return createComponent(Switch, {
+		get fallback() {
+			return _tmpl$();
+		},
+		get children() {
+			return [createComponent(Match, {
+				get when() {
+					return props.isMobile;
+				},
+				get children() {
+					return createComponent(MobileStateProvider, { get children() {
+						return createComponent(Mobile, {
+							get closeText() {
+								return props.closeText;
+							},
+							get loadingText() {
+								return props.loadingText;
+							}
+						});
+					} });
+				}
+			}), createComponent(Match, {
+				get when() {
+					return !props.isMobile;
+				},
+				get children() {
+					return createComponent(DesktopStateProvider, { get children() {
+						return createComponent(Desktop, {
+							get prevText() {
+								return props.prevText;
+							},
+							get closeText() {
+								return props.closeText;
+							},
+							get nextText() {
+								return props.nextText;
+							},
+							get loadingText() {
+								return props.loadingText;
+							}
+						});
+					} });
+				}
+			})];
+		}
+	});
+}
+function Main() {
+	const [ijs] = createResource(getImageJSON);
+	const ua = window.navigator.userAgent.toLowerCase();
+	const hasTouchInput = "ontouchstart" in window || window.navigator.maxTouchPoints > 0;
+	const hasTouchLayout = window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(hover: none)").matches;
+	const isMobileUA = /android|iphone|ipad|ipod|mobile/.test(ua);
+	const isWindowsDesktop = /windows nt/.test(ua);
+	const isMobile = isMobileUA || hasTouchInput && hasTouchLayout && !isWindowsDesktop;
+	return createComponent(Show, {
+		get when() {
+			return ijs.state === "ready";
+		},
+		get children() {
+			return createComponent(ImageStateProvider, {
+				get images() {
+					return ijs() ?? [];
+				},
+				get children() {
+					return createComponent(ConfigStateProvider, { get children() {
+						return createComponent(AppContent, {
+							isMobile,
+							get prevText() {
+								return container.dataset.prev;
+							},
+							get closeText() {
+								return container.dataset.close;
+							},
+							get nextText() {
+								return container.dataset.next;
+							},
+							get loadingText() {
+								return container.dataset.loading;
+							}
+						});
+					} });
+				}
+			});
+		}
+	});
+}
+render(() => createComponent(Main, {}), container);
+//#endregion
+export { useDesktopState as n, useConfigState as r, useMobileState as t };
