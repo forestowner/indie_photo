@@ -15,12 +15,18 @@ nav {
 
   position: fixed;
   bottom: 0;
-  background: white;
+  background: var(--bg);
 
   z-index: var(--z-nav);
 
   // Maintain functionality while container is locked
   pointer-events: all;
+}
+
+.navArtist .logo {
+  height: 1.5em;
+  width: auto;
+  display: block;
 }
 
 .num {

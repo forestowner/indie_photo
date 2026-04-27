@@ -5,7 +5,8 @@
 
 body {
   user-select: none;
-  background: white;
+  background: var(--bg);
+  color: var(--fg);
 }
 
 html,

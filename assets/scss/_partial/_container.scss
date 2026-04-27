@@ -15,7 +15,7 @@ $tablet: map.get($breakpoints, 'tablet') - 1;
 
     overflow-y: scroll;
     overflow-x: hidden;
-    background: white;
+    background: var(--bg);
 
     overscroll-behavior: none;
     -webkit-overflow-scrolling: none;

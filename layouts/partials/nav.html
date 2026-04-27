@@ -1,6 +1,12 @@
 <nav>
   <div class="navArtist">
-    <a href="/">{{- site.Title -}}</a>
+    <a href="/" aria-label="{{- site.Title -}}">
+      <img
+        src="{{- "lib/logo.svg" | absURL -}}"
+        alt="{{- site.Title -}}"
+        class="logo"
+      />
+    </a>
   </div>
   <div class="links">
     {{- $index := 0 -}}

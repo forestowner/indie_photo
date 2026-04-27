@@ -11,7 +11,7 @@
 
   width: 100vw;
   height: calc(var(--window-height) - var(--nav-height));
-  background: white;
+  background: var(--bg);
   transform: translate3d(0, 100%, 0);
 
   .galleryInner {

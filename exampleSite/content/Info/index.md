@@ -1,10 +1,10 @@
 ---
 type: _default
 layout: single
-url: /Info/
+url: /info/
 menu:
   main:
-    weight: 4
+    weight: 5
     identifier: Info
     title: Info
 unifiedAlt: ''
@@ -12,14 +12,12 @@ build:
   publishResources: false
 ---
 
-Bridget is a _minimal_ Hugo theme designed for photographers/visual artists, powered by <u>[SolidJS](https://www.solidjs.com)</u>.
+A small archive of photographs from two years on the road — quiet observations across **France**, **Poland**, **Spain** and the **United States**: streets, coastlines and small towns. I'm not exactly where I want to be with my photography yet, but if you stick around, you may find something that catches your eye.
 
-The inspiration for this theme came from a video by <u>[Hyperlexed](https://www.youtube.com/@Hyperplexed)</u>, which can be found <u>[here](https://www.youtube.com/watch?v=Jt3A2lNN2aE)</u>. Initially, it was developed using no third-party dependencies. However, after website designer <u>[Tyler McRobert](https://tylermcrobert.com)</u> made the source code publicly available, I realized that I have invented many unnecessary wheels, and this project was modified to porting the original design to Hugo while focusing on _performance_.
+All photographs &copy; <u>[Hanna Nyzhnia](https://github.com/forestowner)</u>. Please don't reuse without permission.
 
-Once again, great shout out to <u>[Tyler McRobert](https://tylermcrobert.com)</u> for his inspiration to this project.
+---
 
-[GitHub Repo ↗](https://github.com/Sped0n/bridget)
+This site runs on the _minimal_ <u>[Bridget](https://github.com/Sped0n/bridget)</u> Hugo theme by <u>[Spedon](https://github.com/Sped0n)</u>, which ports the original site design by <u>[Tyler McRobert](https://tylermcrobert.com)</u> to Hugo. The interaction style was originally inspired by a <u>[video](https://www.youtube.com/watch?v=Jt3A2lNN2aE)</u> from <u>[Hyperplexed](https://www.youtube.com/@Hyperplexed)</u>.
 
-Original site design by <u>[Tyler McRobert](https://tylermcrobert.com)</u>.
-
-&copy; {{< year >}} <u>[Spedon](https://github.com/Sped0n)</u> | Built with Hugo
+&copy; {{< year >}} Hanna Nyzhnia | Built with Hugo

@@ -1,12 +1,12 @@
 ---
 type: _default
 layout: single
-url: /
+url: /spain/
 menu:
   main:
-    weight: 1
-    identifier: States
-    title: States
+    weight: 4
+    identifier: Spain
+    title: Spain
 unifiedAlt: '© Hanna Nyzhnia'
 build:
   publishResources: false

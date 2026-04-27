@@ -1,12 +1,12 @@
 ---
 type: _default
 layout: single
-url: /
+url: /france/
 menu:
   main:
-    weight: 1
-    identifier: States
-    title: States
+    weight: 2
+    identifier: France
+    title: France
 unifiedAlt: '© Hanna Nyzhnia'
 build:
   publishResources: false
