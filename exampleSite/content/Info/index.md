@@ -12,7 +12,7 @@ build:
   publishResources: false
 ---
 
-A small archive of photographs from two years on the road — quiet observations across **France**, **Poland**, **Spain** and the **United States**: streets, coastlines and small towns. I'm not exactly where I want to be with my photography yet, but if you stick around, you may find something that catches your eye.
+A small archive of photographs from two years of my travel — quiet observations across **France**, **Poland**, **Spain** and the **United States**: streets, coastlines and small towns. I'm not exactly where I want to be with my photography yet, but if you stick around, you may find something that catches your eye.
 
 All photographs &copy; <u>[Hanna Nyzhnia](https://github.com/forestowner)</u>. Please don't reuse without permission.
 
