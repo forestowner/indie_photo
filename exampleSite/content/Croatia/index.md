@@ -1,12 +1,12 @@
 ---
 type: _default
 layout: single
-url: /france/
+url: /croatia/
 menu:
   main:
-    weight: 4
-    identifier: France
-    title: France
+    weight: 5
+    identifier: Croatia
+    title: Croatia
 unifiedAlt: '© Hanna Nyzhnia'
 build:
   publishResources: false

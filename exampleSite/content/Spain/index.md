@@ -1,10 +1,10 @@
 ---
 type: _default
 layout: single
-url: /spain/
+url: /
 menu:
   main:
-    weight: 4
+    weight: 1
     identifier: Spain
     title: Spain
 unifiedAlt: '© Hanna Nyzhnia'

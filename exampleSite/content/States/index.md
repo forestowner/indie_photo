@@ -1,10 +1,10 @@
 ---
 type: _default
 layout: single
-url: /
+url: /states/
 menu:
   main:
-    weight: 1
+    weight: 3
     identifier: States
     title: States
 unifiedAlt: '© Hanna Nyzhnia'

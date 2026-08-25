@@ -4,7 +4,7 @@ layout: single
 url: /poland/
 menu:
   main:
-    weight: 3
+    weight: 2
     identifier: Poland
     title: Poland
 unifiedAlt: '© Hanna Nyzhnia'
